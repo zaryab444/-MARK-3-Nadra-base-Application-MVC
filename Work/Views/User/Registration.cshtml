@@ -1,0 +1,103 @@
+﻿@model Work.Models.Datum
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+
+
+@using (Html.BeginForm("Registration", "User", FormMethod.Post)) { 
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+                <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Father_Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Father_Name)
+                @Html.ValidationMessageFor(model => model.Father_Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gender, new { @class = "control-label col-md-2" })
+           
+             <div class="col-md-10">
+                @Html.DropDownList("Gender", new List<SelectListItem>
+{
+new SelectListItem { Text = "Male", Value="Male" },
+new SelectListItem { Text = "Female", Value="Female" }
+}, "Select Gender")
+              
+                    @Html.ValidationMessageFor(model => model.Gender)
+                </div>
+            </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Identity_Number, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Identity_Number)
+                @Html.ValidationMessageFor(model => model.Identity_Number)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date_of_Birth, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date_of_Birth)
+                @Html.ValidationMessageFor(model => model.Date_of_Birth)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="submit" class="btn btn-default" />
+            </div>
+
+
+        </div>
+      
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-2">
+                <label class="label-danger">@ViewBag.error</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-2">
+                <label class="label-danger">@ViewBag.DuplicateMessage</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-2">
+                <label class="label-success">@ViewBag.sucessMessage</label>
+            </div>
+
+
+
+
+        </div>
+        </div>
+}
+        
+      
+ 
+     
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

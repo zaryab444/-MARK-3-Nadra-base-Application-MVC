@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InformationModelStoreContainer" CdmEntityContainer="InformationEntities">
+    <EntitySetMapping Name="Data">
+      <EntityTypeMapping TypeName="InformationModel.Datum">
+        <MappingFragment StoreEntitySet="Data">
+          <ScalarProperty Name="Person_ID" ColumnName="Person_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Father_Name" ColumnName="Father_Name" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Identity_Number" ColumnName="Identity_Number" />
+          <ScalarProperty Name="Date_of_Birth" ColumnName="Date_of_Birth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
